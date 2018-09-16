@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="display-1">Bienvenue!</h1>
+        <hr>
+        {% if request.user.is_authenticated %}
+            <span>Bonjour {{ request.user.username }}!</span>
+            <a href="/logout">Se déconnecter?</a>
+        {% endif %}
+    </div>
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-dismissible alert-danger center">
+                    <strong>{{ message }}</strong>
+                </div>
+            {% else %}
+                <div class="alert alert-dismissible alert-success center">
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="container form-group">
+        <form method="POST">
+            {% csrf_token %}
+            <label>Type de hobby :</label><br>
+            {{ form.type_hobby }}<br><br>
+            <!-- <input class="is-valid form-control" type="text" name="type_hobby" id="id_type_hobby"><br> -->
+            <label>Description du hobby :</label><br>
+            {{ form.description }}
+            <!-- <textarea class="form-control" name="description" id="id_description" cols="30" rows="10"></textarea> -->
+            <hr>
+            <button type="submit" class="btn btn-success lg">Créer le Hobby</button>
+        </form>
+        <br>
+    </div>
+    <div class="container">
+        <h3 class="display-3">Liste des hobbies</h3>
+        <hr>
+        <br>
+        <div class="list-group">
+            {% for hobby in hobbies %}
+                {% include '_list.html' %}
+            {% empty %}
+                <p>Il n'y a aucun apprenant.</p>
+            {% endfor %}
+        </div>
+        <br>
+    </div>
+    <br>
+{% endblock %}

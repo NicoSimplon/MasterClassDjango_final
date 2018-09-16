@@ -17,4 +17,9 @@ DATABASES = {
     }
 }
 
-- Vous devez ensuite faire une migration pour que l'ORM crée les tables.
+- Vous devez ensuite faire une migration pour que l'ORM crée les tables:
+
+        Se placer à la racine du projet et utiliser les commandes suivantes:
+
+        ./manage.py makemigrations
+        ./manage.py migrate

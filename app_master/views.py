@@ -1,23 +1,14 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django.db import connection
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
+#from django.contrib.auth import authenticate, login
+#from django.contrib.auth.decorators import login_required
 
 from .models import (Apprenant, Formateur, Hobbies)
 
 from .forms import (HobbiesForm,)
 
-# @login_required
-# def requete(type_hobby, description):
-#     with connection.cursor() as cursor:
-#         cursor.execute("""
-#         INSERT INTO "app_master_hobbies" ("type_hobby", "description") 
-#         VALUES (%s, %s)
-#         """, [type_hobby, description]
-#         )
-
-@login_required
+#@login_required
 def accueil(request):
     if request.method == 'POST':
         form = HobbiesForm(request.POST)
@@ -39,10 +30,6 @@ def accueil(request):
     
     else:
         form = HobbiesForm()
-
-        # type_hobby = request.POST.get("type_hobby")
-        # description = request.POST.get("description")
-        # requete(type_hobby, description)
 
 
     hobbies = Hobbies.objects.all()

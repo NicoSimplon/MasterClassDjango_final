@@ -21,14 +21,14 @@ from django.conf import settings
 from app_master import views
 
 urlpatterns = [
-    path('login', auth_views.login, name='login'),
-    path('logout', auth_views.logout, {'next_page': '/'}, name='logout'),
+    #path('login', auth_views.login, name='login'),
+    #path('logout', auth_views.logout, {'next_page': '/'}, name='logout'),
     path('', views.accueil, name="accueil"),
     path('admin/', admin.site.urls),
 ]
 
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+# if settings.DEBUG:
+#     import debug_toolbar
+#     urlpatterns = [
+#         url(r'^__debug__/', include(debug_toolbar.urls)),
+#     ] + urlpatterns

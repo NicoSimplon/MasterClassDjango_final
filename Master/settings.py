@@ -25,9 +25,9 @@ SECRET_KEY = 'hz&zc!h(5@s=1nkq6qe=aclsu(fdglw4^tm)fil*i3+smxmf44'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-LOGIN_URL = '/login'
+# LOGIN_URL = '/login'
 
-LOGIN_REDIRECT_URL = ''
+# LOGIN_REDIRECT_URL = ''
 
 ALLOWED_HOSTS = []
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
+    #'debug_toolbar',
     'app_master',
 ]
 
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'Master.urls'
@@ -130,4 +130,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-INTERNAL_IPS = '127.0.0.1:8000'
+# INTERNAL_IPS = '127.0.0.1:8000'
